@@ -1,0 +1,44 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="hero is-medium is-light">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title is-1">
+                Sentiment Analyse
+            </h1>
+            <h2 class="subtitle is-4 mt-4">
+                Bewerte Rezensionen automatisch mit Machine Learning.
+            </h2>
+            <p class="mb-5">
+                Dieses Tool nutzt ein ML.NET Modell zur Binary Classification,
+                um Texte als positiv oder negativ einzustufen.
+            </p>
+            <a class="button is-primary is-medium" asp-page="/BinaryClassification">
+                Zur Analyse
+            </a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="box">
+                    <h3 class="title is-4">Wie funktioniert es?</h3>
+                    <div class="content">
+                        <ol>
+                            <li>Gib eine Rezension oder einen Text ein</li>
+                            <li>Das ML-Modell analysiert den Text</li>
+                            <li>Du erhältst eine Bewertung: Positiv oder Negativ</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

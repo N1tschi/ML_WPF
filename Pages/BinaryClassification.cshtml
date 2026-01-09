@@ -1,0 +1,72 @@
+@page
+@model BinaryClassificationModel
+@{
+    ViewData["Title"] = "Binary Classification";
+}
+
+<section class="section">
+    <div class="container">
+        <h1 class="title">Binary Classification</h1>
+        <p class="subtitle">Gib eine Rezension ein und lass sie vom ML-Modell bewerten.</p>
+
+        <div class="box">
+            <form method="post">
+                <div class="field">
+                    <label class="label">Rezension</label>
+                    <div class="control">
+                        <textarea class="textarea" name="ReviewText" rows="4" 
+                                  placeholder="Rezension hier eingeben...">@Model.ReviewText</textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">Bewerten</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        @if (Model.ShowResult)
+        {
+            <div class="notification @(Model.IsPositive ? "is-success" : "is-danger") mt-4">
+                <p class="has-text-weight-bold">
+                    Ergebnis: @(Model.IsPositive ? "Positiv" : "Negativ")
+                </p>
+            </div>
+        }
+
+        @if (Model.History.Count > 0)
+        {
+            <hr />
+            <h2 class="title is-4 mt-5">Verlauf</h2>
+            
+            <div class="table-container">
+                <table class="table is-fullwidth is-striped">
+                    <thead>
+                        <tr>
+                            <th>Rezension</th>
+                            <th style="width: 120px;">Bewertung</th>
+                            <th style="width: 100px;">Zeit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var entry in Model.History)
+                        {
+                            <tr>
+                                <td>@entry.Text</td>
+                                <td>
+                                    <span class="tag @(entry.IsPositive ? "is-success" : "is-danger")">
+                                        @(entry.IsPositive ? "Positiv" : "Negativ")
+                                    </span>
+                                </td>
+                                <td>
+                                    <small>@entry.Timestamp.ToString("HH:mm:ss")</small>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</section>
