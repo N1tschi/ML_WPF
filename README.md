@@ -1,6 +1,6 @@
 # ML_WPF - Sentiment Analyse
 
-Eine ASP.NET Core Razor Pages Webanwendung zur Sentiment-Analyse von Rezensionen mit ML.NET.
+Eine ASP.NET Core Razor Pages Webanwendung zur Sentiment-Analyse von Rezensionen mit ML.NET. Es wurden circa 3000 Trainingsdaten für 120 Sekunden trainiert mt dem Modell LbfgsLogisticRegressionOva und einer MacroAccuracy von 0,7895
 
 ## Voraussetzungen
 
